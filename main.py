@@ -47,15 +47,15 @@ time_now = datetime.now()
 
 while True:
     time.sleep(60)
-visible_flag = False
-if sunset <= time_now.hour <= sunrise:
-    # Night time viewing window activated
-    visible_flag = True
-    for key, value in iss_position.items():
-        if my_viewpoint[key_lookup[key]][0] <= value <= my_viewpoint[key_lookup[key]][1]:
-            visible_flag = True
-        else:
-            visible_flag = False
-    # Check if ISS within visible viewpoint
-    if visible_flag:
-        send_email(iss_position["latitude"], iss_position["longitude"])
+    visible_flag = False
+    if sunset <= time_now.hour <= sunrise:
+        # Night time viewing window activated
+        visible_flag = True
+        for key, value in iss_position.items():
+            if my_viewpoint[key_lookup[key]][0] <= value <= my_viewpoint[key_lookup[key]][1]:
+                visible_flag = True
+            else:
+                visible_flag = False
+        # Check if ISS within visible viewpoint
+        if visible_flag:
+            send_email(iss_position["latitude"], iss_position["longitude"])
