@@ -52,7 +52,7 @@ if sunset <= time_now.hour <= sunrise:
     # Night time viewing window activated
     visible_flag = True
     for key, value in iss_position.items():
-        if my_viewpoint[key_lookup[key]][0] <= value <= my_viewpoint[key_lookup[key]][0]:
+        if my_viewpoint[key_lookup[key]][0] <= value <= my_viewpoint[key_lookup[key]][1]:
             visible_flag = True
         else:
             visible_flag = False
